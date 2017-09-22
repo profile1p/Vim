@@ -165,7 +165,7 @@ nnoremap <C-i> #*
 winpos 32 64        		      " 设置窗口位置
 set lines=36 columns=128	          " 设置窗口长宽
 set colorcolumn=91                " 设置行边界高亮
-set guioptions=m                  " 隐藏工具栏
+set guioptions=m                  " 仅显示菜单栏
 set guifont=Consolas:h11:b:cANSI  " 设置字体
 colorscheme desert		              " 设置配色方案
 set wrap                          " 禁用 自动折行(仅显示效果行不超出vim窗体宽度)
@@ -191,4 +191,3 @@ set expandtab   		          " 设置  用空格替代制表符(禁用加no-)
 set incsearch       		      " 启用  增量式搜索(禁用加no-)
 set history=255     		      " 设定  撤销记录为255次
 
-"cd I:\Programming\Source\Win32\Test
