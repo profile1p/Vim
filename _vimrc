@@ -144,7 +144,8 @@ nnoremap <C-l> <C-w>l
 inoremap <expr><Tab> pumvisible() ? "\<C-N>" : "\<Tab>"
 inoremap <expr><S-Tab> pumvisible() ? "\<C-P>" : "\<S-Tab>"
 "用ctags生成tags
-nnoremap <F11> :!ctags<Space>-R<Space>--c++-kinds=+p<Space>--fields=+iaS<Space>--extra=+q<CR>
+nnoremap <F11> :!ctags<Space>-R<Space>--c++-kinds=+px<Space>--fields=+iaS<Space>--extra=+q<CR>
+nnoremap <F12> :!ctags<Space>-R<Space>--python-kinds=-i<CR>
 "qmake编译
 nnoremap <C-F9> :!qmake -project<CR>
 nnoremap <F9> :!qmake<CR>
@@ -155,6 +156,8 @@ nnoremap <C-F4> :!explorer release<CR>
 "g++编译
 nnoremap <F5> :!g++ -o %:r.exe %<CR>:!%:r.exe<CR>
 nnoremap <C-F5> :!g++ -static -o %:r.exe %<CR>:!%:r.exe<CR>
+" json格式化
+nnoremap <F2> :%!python -m json.tool<CR>
 "tag跳转
 nmap <C-BS> <C-t>
 nmap <C-CR> <C-]>
@@ -166,7 +169,7 @@ winpos 32 64        		      " 设置窗口位置
 set lines=36 columns=128	          " 设置窗口长宽
 set colorcolumn=91                " 设置行边界高亮
 set guioptions=m                  " 仅显示菜单栏
-set guifont=Consolas:h11:b:cANSI  " 设置字体
+set guifont=Consolas:h11:cANSI  " 设置字体
 colorscheme desert		              " 设置配色方案
 set wrap                          " 禁用 自动折行(仅显示效果行不超出vim窗体宽度)
 set textwidth=0                     " 自动换行长度(0位不自动换行)
