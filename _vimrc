@@ -68,9 +68,9 @@ endfunction
  let g:AutoPairsShortcutBackInsert = '<M-b>'
  Plug 'tpope/vim-surround'
  " 在成对的(),[],{},"",''符号及之间进行操作
- Plug 'a.vim'
+ Plug 'vim-scripts/a.vim'
  " 在.cpp和.h中跳转
- Plug 'bufexplorer.zip'
+ Plug 'vim-scripts/bufexplorer.zip'
  " 浏览Buffer的插件
  Plug 'fholgado/minibufexpl.vim'
  let g:miniBufExplAutoStart=0
