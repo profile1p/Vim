@@ -1,5 +1,5 @@
-"==== gvimÄ¬ÈÏÉèÖÃ ===========================================================================
-set nocompatible "¹Ø±Õ  vi¼æÈİÄ£Ê½
+"==== gvimé»˜è®¤è®¾ç½® ===========================================================================
+set nocompatible "å…³é—­  viå…¼å®¹æ¨¡å¼
 source $VIMRUNTIME/vimrc_example.vim
 """"source $VIMRUNTIME/mswin.vim
 behave mswin
@@ -29,68 +29,61 @@ function MyDiff()
   silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
 
-"==== Vundle²å¼şÅäÖÃ =========================================================================
+"==== Vundleæ’ä»¶é…ç½® =========================================================================
  "set nocompatible               " be improved
- "filetype off                   " required! ±ØÒªµÄ£¡
+ "filetype off                   " required! å¿…è¦çš„ï¼
 
  set rtp+=$VIM\vimfiles\plugged\vim-plug
  call plug#begin('$VIM/vimfiles/plugged')
 
- " vim-plug×Ô´ø¸üĞÂ¹¦ÄÜ£¬²»ĞèÒªÄÉÈë²å¼ş
+ " vim-plugè‡ªå¸¦æ›´æ–°åŠŸèƒ½ï¼Œä¸éœ€è¦çº³å…¥æ’ä»¶
 
- " My Bundles here ×Ô¶¨ÒåµÄ²å¼ş:
+ " My Bundles here è‡ªå®šä¹‰çš„æ’ä»¶:
  "
- " original repos on github À´×ÔgithubÉÏµÄ²å¼ş£¨¸ñÊ½£ºBundle '×÷ÕßÃû/²å¼şÃû')
- " vim-scripts repos ¹Ù·½µÄVim-scripts(¸ñÊ½£ºBundle '²å¼şÃû')
- " non github repos À´×Ô·ÇgithubÉÏµÄ²å¼ş(¸ñÊ½£ºBundle 'git://ÍêÕûµÄURL')
+ " original repos on github æ¥è‡ªgithubä¸Šçš„æ’ä»¶ï¼ˆæ ¼å¼ï¼šBundle 'ä½œè€…å/æ’ä»¶å')
+ " vim-scripts repos å®˜æ–¹çš„Vim-scripts(æ ¼å¼ï¼šBundle 'æ’ä»¶å')
+ " non github repos æ¥è‡ªégithubä¸Šçš„æ’ä»¶(æ ¼å¼ï¼šBundle 'git://å®Œæ•´çš„URL')
 
- " À´×ÔÓÃ»§µÄ×Ô¶¨Òå²å¼şÔÚ´ËĞĞºóÌí¼Ó
+ " æ¥è‡ªç”¨æˆ·çš„è‡ªå®šä¹‰æ’ä»¶åœ¨æ­¤è¡Œåæ·»åŠ 
 
  Plug 'vimcn/vimcdoc', {'branch' : 'release'}
- " VimÖĞÎÄÎÄµµ
- set helplang=cn " ÅäÖÃ°ïÖúÓïÑÔÎªÖĞÎÄ
+ " Vimä¸­æ–‡æ–‡æ¡£
+ set helplang=cn " é…ç½®å¸®åŠ©è¯­è¨€ä¸ºä¸­æ–‡
 
+ " æ–‡ä»¶æ ‘ç®¡ç†
  Plug 'scrooloose/nerdtree'
- " ÎÄ¼şÊ÷¹ÜÀí
+ let NERDTreeWinSize=36
+ " è®©nerdTreeåœ¨æœ€åä¸€ä¸ªbufferçª—å£å…³é—­æ—¶ï¼Œä¸è®©å…¶ç¼©æ”¾
  "Plug 'oblitum/bufkill'
- " ÈÃnerdTreeÔÚ×îºóÒ»¸öbuffer´°¿Ú¹Ø±ÕÊ±£¬²»ÈÃÆäËõ·Å
+ " ç”Ÿæˆå‡½æ•°å˜é‡åˆ—è¡¨ï¼Œæ¯”TagListå¥½ç”¨
  Plug 'majutsushi/tagbar'
- " Éú³Éº¯Êı±äÁ¿ÁĞ±í£¬±ÈTagListºÃÓÃ
  let Tlist_Use_Right_Window=1
- let g:tagbar_left=1
+ let g:tagbar_left=0
+ " æ³¨é‡Šä»£ç çš„æ’ä»¶
  Plug 'tpope/vim-commentary'
- " ×¢ÊÍ´úÂëµÄ²å¼ş
+ " æœç´¢ç›®å½•ä¸‹çš„æ–‡ä»¶ï¼Œç±»ä¼¼Command-Tï¼Œä½†æ˜¯ä¸ä¾èµ–rubyï¼Œè½»é‡çº§
  Plug 'kien/ctrlp.vim'
- " ËÑË÷Ä¿Â¼ÏÂµÄÎÄ¼ş£¬ÀàËÆCommand-T£¬µ«ÊÇ²»ÒÀÀµruby£¬ÇáÁ¿¼¶
+ " ç”Ÿæˆæˆå¯¹çš„(),[],{},"",''
  Plug 'jiangmiao/auto-pairs'
- " Éú³É³É¶ÔµÄ(),[],{},"",''
  let g:AutoPairsFlyMode = 0
  let g:AutoPairsShortcutBackInsert = '<M-b>'
+ " åœ¨æˆå¯¹çš„(),[],{},"",''ç¬¦å·åŠä¹‹é—´è¿›è¡Œæ“ä½œ
  Plug 'tpope/vim-surround'
- " ÔÚ³É¶ÔµÄ(),[],{},"",''·ûºÅ¼°Ö®¼ä½øĞĞ²Ù×÷
- Plug 'vim-scripts/a.vim'
- " ÔÚ.cppºÍ.hÖĞÌø×ª
- Plug 'vim-scripts/bufexplorer.zip'
- " ä¯ÀÀBufferµÄ²å¼ş
- Plug 'fholgado/minibufexpl.vim'
- let g:miniBufExplAutoStart=0
- let g:miniBufExplorerMoreThanOne=0
- ""Bundle 'oblitum/clang_complete'
- ""let g:clang_complete_auto=1  " ¿ªÆô×Ô¶¯²¹È«(Ä¬ÈÏ£º1)
- ""let g:clang_complete_copen=1 " ÔÚ¼ì²âµ½´íÎóÖ®ºó´ò¿ª¿ìËÙĞŞ¸´´°¿Ú(Ä¬ÈÏ£º0)
- ""let g:clang_hl_errors=1      " ÒÔclangµÄ·½Ê½¸ßÁÁ¾¯¸æºÍ´íÎó(Ä¬ÈÏ£º1)
- ""let g:clang_periodic_quickfix=0  " ÖÜÆÚĞÔ¸üĞÂ¿ìËÙĞŞ¸´´°¿Ú(Ä¬ÈÏ£º0)
- ""let g:clang_snippets=1       " ¿ªÆôsnippets²¹È«(Ä¬ÈÏ:0)
- ""let g:clang_conceal_snippets=1   " Ê¹ÓÃVimµÄconcealÌØÕ÷Òş²Ø<#ºÍ#>,´Ó¶ø½ç¶¨´úÂëÆ¬¶Î(Ä¬ÈÏ:1)
- ""let g:clang_library_path="F:\Vim\vimfiles\Bundle\clang_complete" " ÉèÖÃlibclang.dllµÄÂ·¾¶
- ""let g:clang_use_library=1    " Ê¹ÓÃlibclang.dll¼ÓËÙ
- ""set conceallevel=2           " ¼û°ïÖúÎÄµµ
- ""set concealcursor=vin        " ¼û°ïÖúÎÄµµ
- ""set completeopt=menu,menuone " ¼û°ïÖúÎÄµµ
- ""set pumheight=11             " ¼û°ïÖúÎÄµµ
- " Ìî²¹clang_completeµÄÆäËüÓïÑÔ
- ""Bundle 'osyo-manga/neocomplcache-clang_complete'
- " ½â¾öclang_completeºÍneocomplcacheµÄ³åÍ»
+ " ç•Œé¢ç¾åŒ–(tab,æç¤ºæ¡†,çŠ¶æ€æ¡)
+ Plug 'vim-airline/vim-airline'
+ let g:airline#extensions#tabline#enabled = 1
+ let g:airline#extensions#tabline#tab_nr_type = 1
+ let g:airline#extensions#tabline#show_tab_nr = 1
+ let g:airline#extensions#tabline#formatter = 'short_path'
+ let g:airline#extensions#tabline#buffer_nr_show = 0
+ let g:airline#extensions#tabline#fnametruncate = 16
+ let g:airline#extensions#tabline#fnamecollapse = 2
+ let g:airline#extensions#tabline#buffer_idx_mode = 1
+ set t_Co=256
+ Plug 'vim-airline/vim-airline-themes'
+ let g:airline_theme='dracula'
+ " å½©è™¹æ‹¬å·å¯¹
+ Plug 'kien/rainbow_parentheses.vim'
  Plug 'Shougo/neocomplcache'
  let g:neocomplcache_force_overwrite_completefunc=1
  let g:neocomplcache_enable_at_startup = 1
@@ -98,99 +91,133 @@ endfunction
  let g:neocomplcache_enable_camel_case_completion = 1
  let g:neocomplcache_enable_underbar_completion = 1
  let g:neocomplcache_min_syntax_length = 0
- " Ìî²¹clang_completeµÄÆäËüÓïÑÔ
+ " åœ¨.cppå’Œ.hä¸­è·³è½¬
+ Plug 'vim-scripts/a.vim'
+ " å¡«è¡¥clang_completeçš„å…¶å®ƒè¯­è¨€
+ ""Bundle 'oblitum/clang_complete'
+ ""let g:clang_complete_auto=1  " å¼€å¯è‡ªåŠ¨è¡¥å…¨(é»˜è®¤ï¼š1)
+ ""let g:clang_complete_copen=1 " åœ¨æ£€æµ‹åˆ°é”™è¯¯ä¹‹åæ‰“å¼€å¿«é€Ÿä¿®å¤çª—å£(é»˜è®¤ï¼š0)
+ ""let g:clang_hl_errors=1      " ä»¥clangçš„æ–¹å¼é«˜äº®è­¦å‘Šå’Œé”™è¯¯(é»˜è®¤ï¼š1)
+ ""let g:clang_periodic_quickfix=0  " å‘¨æœŸæ€§æ›´æ–°å¿«é€Ÿä¿®å¤çª—å£(é»˜è®¤ï¼š0)
+ ""let g:clang_snippets=1       " å¼€å¯snippetsè¡¥å…¨(é»˜è®¤:0)
+ ""let g:clang_conceal_snippets=1   " ä½¿ç”¨Vimçš„concealç‰¹å¾éšè—<#å’Œ#>,ä»è€Œç•Œå®šä»£ç ç‰‡æ®µ(é»˜è®¤:1)
+ ""let g:clang_library_path="F:\Vim\vimfiles\Bundle\clang_complete" " è®¾ç½®libclang.dllçš„è·¯å¾„
+ ""let g:clang_use_library=1    " ä½¿ç”¨libclang.dllåŠ é€Ÿ
+ ""set conceallevel=2           " è§å¸®åŠ©æ–‡æ¡£
+ ""set concealcursor=vin        " è§å¸®åŠ©æ–‡æ¡£
+ ""set completeopt=menu,menuone " è§å¸®åŠ©æ–‡æ¡£
+ ""set pumheight=11             " è§å¸®åŠ©æ–‡æ¡£
+ " è§£å†³clang_completeå’Œneocomplcacheçš„å†²çª
  ""Bundle 'osyo-manga/neocomplcache-clang_complete'
- " ½â¾öclang_completeºÍneocomplcacheµÄ³åÍ»
- ""Bundle 'nathanaelkane/vim-indent-guides'
- " let g:indent_guides_start_level=2
- " let g:indent_guides_guide_size=1
- " ĞĞ¶ÔÆë¸¨ÖúÏß
+ " å¡«è¡¥clang_completeçš„å…¶å®ƒè¯­è¨€
+ Plug 'Shougo/neocomplcache'
+ let g:neocomplcache_force_overwrite_completefunc=1
+ let g:neocomplcache_enable_at_startup = 1
+ let g:neocomplcache_enable_smart_case = 1
+ let g:neocomplcache_enable_camel_case_completion = 1
+ let g:neocomplcache_enable_underbar_completion = 1
+ let g:neocomplcache_min_syntax_length = 0
+ " Sublime Text çš„å¤šé‡é€‰å–ç‰¹æ€§
  Plug 'terryma/vim-multiple-cursors'
- " Sublime Text µÄ¶àÖØÑ¡È¡ÌØĞÔ
+ " Zen-Coding html/csså¿«æ·æ’ä»¶
  Plug 'mattn/emmet-vim'
- " Zen-Coding html/css¿ì½İ²å¼ş
+ " ç¼©è¿›å¯¹å…¶çº¿
  Plug 'Yggdroot/indentLine'
  let g:indentLine_char = '|'
  let g:indentLine_color_gui = '#666666'
- " Ëõ½ø¶ÔÆäÏß
+ " Base64ç¼–è§£ç æ’ä»¶
+ Plug 'christianrondeau/vim-base64'
+ " å¿«é€Ÿå®šä½æ’ä»¶
+ Plug 'easymotion/vim-easymotion'
 
  silent! call plug#end()
- "filetype plugin indent on     " required! ±ØÒªµÄ£¡
+ "filetype plugin indent on     " required! å¿…è¦çš„ï¼
  "
- " Brief help vim-plug³£ÓÃÖ¸Áî
- " :PlugList          - list configured bundles ÁĞ³öÒÑ°²×°µÄ²å¼ş
- " :PlugInstall(!)    - install(update) bundles °²×°(Éı¼¶)ËùÓĞÅäÖÃÎÄ¼şÖĞµÄ²å¼ş
+ " Brief help vim-plugå¸¸ç”¨æŒ‡ä»¤
+ " :PlugList          - list configured bundles åˆ—å‡ºå·²å®‰è£…çš„æ’ä»¶
+ " :PlugInstall(!)    - install(update) bundles å®‰è£…(å‡çº§)æ‰€æœ‰é…ç½®æ–‡ä»¶ä¸­çš„æ’ä»¶
  " :PlugSearch(!) foo - search(or refresh cache first) for foo
- " ²éÕÒ(ÏÈË¢ĞÂ»º´æ)foo
+ " æŸ¥æ‰¾(å…ˆåˆ·æ–°ç¼“å­˜)foo
  " :PlugClean(!)      - confirm(or auto-approve) removal of unused bundles
- " (×Ô¶¯)É¾³ıÎ´ÔÚ_vimrcÖĞ¶¨ÒåµÄ²å¼ş
+ " (è‡ªåŠ¨)åˆ é™¤æœªåœ¨_vimrcä¸­å®šä¹‰çš„æ’ä»¶
  "
  " NOTE: comments after Bundle command are not allowed..
 
-"==== tagsÅäÖÃ ===============================================================================
+"==== tagsé…ç½® ===============================================================================
 set tags=tags,.\tags;
 set autochdir
 
-"==== ¼üÅÌÓ³Éä ===============================================================================
-"´°¿ÚÇĞ»»
+"==== é”®ç›˜æ˜ å°„ ===============================================================================
+" <Leader>ç»‘å®š
+let mapleader=","
+"çª—å£åˆ‡æ¢
 "nnoremap <C-Tab> <C-w><C-w>
 nnoremap <C-Tab> :bn<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-"×Ô¶¯²¹È«
- "<Tab>¼üÎªÏòÏÂÑ¡Ôñ£»<S-Tab>¼üÎªÏòÉÏÑ¡Ôñ
+"è‡ªåŠ¨è¡¥å…¨
+ "<Tab>é”®ä¸ºå‘ä¸‹é€‰æ‹©ï¼›<S-Tab>é”®ä¸ºå‘ä¸Šé€‰æ‹©
 inoremap <expr><Tab> pumvisible() ? "\<C-N>" : "\<Tab>"
 inoremap <expr><S-Tab> pumvisible() ? "\<C-P>" : "\<S-Tab>"
-"ÓÃctagsÉú³Étags
+"ç”¨ctagsç”Ÿæˆtags
 nnoremap <F11> :!ctags<Space>-R<Space>--c++-kinds=+px<Space>--fields=+iaS<Space>--extra=+q<CR>
 nnoremap <F12> :!ctags<Space>-R<Space>--python-kinds=-i<CR>
-"qmake±àÒë
+"qmakeç¼–è¯‘
 nnoremap <C-F9> :!qmake -project<CR>
 nnoremap <F9> :!qmake<CR>
-"make±àÒë
+"makeç¼–è¯‘
 nnoremap <F6> :cope<CR>:make<CR>
 nnoremap <S-F4> :!explorer debug<CR>
 nnoremap <C-F4> :!explorer release<CR>
-"g++±àÒë
+"g++ç¼–è¯‘
 nnoremap <F5> :!g++ -o %:r.exe %<CR>:!%:r.exe<CR>
 nnoremap <C-F5> :!g++ -static -o %:r.exe %<CR>:!%:r.exe<CR>
-" json¸ñÊ½»¯
+" jsonæ ¼å¼åŒ–
 nnoremap <F2> :%!python -m json.tool<CR>
-"tagÌø×ª
+"tagè·³è½¬
 nmap <C-BS> <C-t>
 nmap <C-CR> <C-]>
-"¸ßÁÁÓëÑ¡ÖĞµ¥´ÊÏàÍ¬µÄµ¥´Ê
+"é«˜äº®ä¸é€‰ä¸­å•è¯ç›¸åŒçš„å•è¯
 nnoremap <C-i> #*
 
-"==== VIMÉèÖÃ ================================================================================
-winpos 32 64        		      " ÉèÖÃ´°¿ÚÎ»ÖÃ
-set lines=36 columns=128	          " ÉèÖÃ´°¿Ú³¤¿í
-set colorcolumn=91                " ÉèÖÃĞĞ±ß½ç¸ßÁÁ
-set guioptions=m                  " ½öÏÔÊ¾²Ëµ¥À¸
-set guifont=Consolas:h11:cANSI  " ÉèÖÃ×ÖÌå
-colorscheme desert		              " ÉèÖÃÅäÉ«·½°¸
-set wrap                          " ½ûÓÃ ×Ô¶¯ÕÛĞĞ(½öÏÔÊ¾Ğ§¹ûĞĞ²»³¬³övim´°Ìå¿í¶È)
-set textwidth=0                     " ×Ô¶¯»»ĞĞ³¤¶È(0Î»²»×Ô¶¯»»ĞĞ)
-set number		                  " ÏÔÊ¾ĞĞºÅ
-set norelativenumber                " ²»ÏÔÊ¾Ïà¶ÔĞĞºÅ
-set nobackup        		      " ½ûÓÃ  ×Ô¶¯±¸·İ
-set noundofile                  " ½ûÓÃ Éú³É³·Ïú¶¯×÷ÎÄ¼ş
-set nocompatible        	      " ½ûÓÃ  viµÄ¼üÅÌÄ£Ê½£¬¶øÊÇvim×Ô¼ºµÄ
-set fileencoding=utf-8            " ÉèÖÃÄ¬ÈÏ×Ö·û±àÂëÎªutf-8(UCS-BOMÊÇ´øBOMµÄutf-8)
-set fileencodings=ucs-bom,utf-8,shift_jis,cp936,gb18030,big5 "ÉèÖÃ×Ö·û±àÂë¼ì²âË³Ğò(cp936=GBK)
-filetype plugin indent on         " Æô¶¯  ÎÄ¼şÀàĞÍ¼ì²â
-set syntax=on       		      " ÆôÓÃ  Óï·¨¸ßÁÁ
-set confirm         		      " ÔÚ´¦ÀíÎ´±£´æ»òÖ»¶ÁÎÄ¼şµÄÊ±ºò£¬µ¯³öÈ·ÈÏ
-"set cindent         		      " CËõ½ø½á¹¹
-set smartindent                   " ÖÇÄÜËõ½ø
-set autoindent                    " ×Ô¶¯Ëõ½ø£¨ÓëÖÇÄÜÅäºÏ£©
-set shiftround                    " Ëõ½ø¶ÔÆë
-set tabstop=2                     " Éè¶¨  ÖÆ±í·û¿Õ¸ñÊıÎª2
-set shiftwidth=2                  " Éè¶¨  Ëõ½ø¿Õ¸ñÊıÎª2
-set ignorecase smartcase          " ÉèÖÃ  ²éÕÒÖÇÄÜ´óĞ¡Ğ´ºöÂÔ(½ûÓÃ¼Óno-)
-set expandtab   		          " ÉèÖÃ  ÓÃ¿Õ¸ñÌæ´úÖÆ±í·û(½ûÓÃ¼Óno-)
-set incsearch       		      " ÆôÓÃ  ÔöÁ¿Ê½ËÑË÷(½ûÓÃ¼Óno-)
-set history=255     		      " Éè¶¨  ³·Ïú¼ÇÂ¼Îª255´Î
+"==== VIMè®¾ç½® ================================================================================
+winpos 32 64        		      " è®¾ç½®çª—å£ä½ç½®
+set lines=44 columns=128	          " è®¾ç½®çª—å£é•¿å®½
+set colorcolumn=91                " è®¾ç½®è¡Œè¾¹ç•Œé«˜äº®
+set guioptions=m                  " ä»…æ˜¾ç¤ºèœå•æ 
+set guifont=Consolas:h11:cANSI  " è®¾ç½®å­—ä½“
+colorscheme desert		              " è®¾ç½®é…è‰²æ–¹æ¡ˆ
+set nowrap                          " ç¦ç”¨ è‡ªåŠ¨æŠ˜è¡Œ(ä»…æ˜¾ç¤ºæ•ˆæœè¡Œä¸è¶…å‡ºvimçª—ä½“å®½åº¦)
+set textwidth=0                     " è‡ªåŠ¨æ¢è¡Œé•¿åº¦(0ä½ä¸è‡ªåŠ¨æ¢è¡Œ)
+set number		                  " æ˜¾ç¤ºè¡Œå·
+set norelativenumber                " ä¸æ˜¾ç¤ºç›¸å¯¹è¡Œå·
+set nobackup        		      " ç¦ç”¨  è‡ªåŠ¨å¤‡ä»½
+set noundofile                  " ç¦ç”¨ ç”Ÿæˆæ’¤é”€åŠ¨ä½œæ–‡ä»¶
+set nocompatible        	      " ç¦ç”¨  viçš„é”®ç›˜æ¨¡å¼ï¼Œè€Œæ˜¯vimè‡ªå·±çš„
+set fileencoding=utf-8            " è®¾ç½®é»˜è®¤å­—ç¬¦ç¼–ç ä¸ºutf-8(UCS-BOMæ˜¯å¸¦BOMçš„utf-8)
+set fileencodings=ucs-bom,utf-8,shift_jis,cp936,gb18030,big5 "è®¾ç½®å­—ç¬¦ç¼–ç æ£€æµ‹é¡ºåº(cp936=GBK)
+filetype plugin indent on         " å¯åŠ¨  æ–‡ä»¶ç±»å‹æ£€æµ‹
+set syntax=on       		      " å¯ç”¨  è¯­æ³•é«˜äº®
+set confirm         		      " åœ¨å¤„ç†æœªä¿å­˜æˆ–åªè¯»æ–‡ä»¶çš„æ—¶å€™ï¼Œå¼¹å‡ºç¡®è®¤
+"set cindent         		      " Cç¼©è¿›ç»“æ„
+set smartindent                   " æ™ºèƒ½ç¼©è¿›
+set autoindent                    " è‡ªåŠ¨ç¼©è¿›ï¼ˆä¸æ™ºèƒ½é…åˆï¼‰
+set shiftround                    " ç¼©è¿›å¯¹é½
+set tabstop=2                     " è®¾å®š  åˆ¶è¡¨ç¬¦ç©ºæ ¼æ•°ä¸º2
+set shiftwidth=2                  " è®¾å®š  ç¼©è¿›ç©ºæ ¼æ•°ä¸º2
+set ignorecase smartcase          " è®¾ç½®  æŸ¥æ‰¾æ™ºèƒ½å¤§å°å†™å¿½ç•¥(ç¦ç”¨åŠ no-)
+set expandtab   		          " è®¾ç½®  ç”¨ç©ºæ ¼æ›¿ä»£åˆ¶è¡¨ç¬¦(ç¦ç”¨åŠ no-)
+set incsearch       		      " å¯ç”¨  å¢é‡å¼æœç´¢(ç¦ç”¨åŠ no-)
+set history=255     		      " è®¾å®š  æ’¤é”€è®°å½•ä¸º255æ¬¡
 
+"==== é’ˆå¯¹æ€§é…ç½® ================================================================
+" c,c++ç±»å‹æ–‡ä»¶é…ç½®
+function CppFileSettings()
+  set columns=174
+  NERDTree
+  wincmd p
+  call tagbar#autoopen()
+endfunction
+autocmd GUIEnter,FileType c,cpp call CppFileSettings()
