@@ -168,14 +168,14 @@ nnoremap <F12> :!ctags<Space>-R<Space>--python-kinds=-i<CR>
 nnoremap <C-F9> :!qmake -project<CR>
 nnoremap <F9> :!qmake<CR>
 "make编译
-nnoremap <F6> :cope<CR>:make<CR>
+nnoremap <F6> :copen<CR>:make<CR>
 nnoremap <S-F4> :!explorer debug<CR>
 nnoremap <C-F4> :!explorer release<CR>
 "g++编译
 nnoremap <F5> :!g++ -o %:r.exe %<CR>:!%:r.exe<CR>
 nnoremap <C-F5> :!g++ -static -o %:r.exe %<CR>:!%:r.exe<CR>
 " json格式化
-nnoremap <F2> :%!python -m json.tool<CR>
+nnoremap <F2> :%!java -jar D:/Vim/tools/json.jar<CR>
 "tag跳转
 nmap <C-BS> <C-t>
 nmap <C-CR> <C-]>
@@ -184,12 +184,12 @@ nnoremap <C-i> #*
 
 "==== VIM设置 ================================================================================
 winpos 32 64        		      " 设置窗口位置
-set lines=44 columns=128	          " 设置窗口长宽
+set lines=40 columns=128	          " 设置窗口长宽
 set colorcolumn=91                " 设置行边界高亮
 set guioptions=m                  " 仅显示菜单栏
 set guifont=Consolas:h11:cANSI  " 设置字体
 colorscheme desert		              " 设置配色方案
-set nowrap                          " 禁用 自动折行(仅显示效果行不超出vim窗体宽度)
+set wrap                          " 禁用 自动折行(仅显示效果行不超出vim窗体宽度)
 set textwidth=0                     " 自动换行长度(0位不自动换行)
 set number		                  " 显示行号
 set norelativenumber                " 不显示相对行号
@@ -220,4 +220,4 @@ function CppFileSettings()
   wincmd p
   call tagbar#autoopen()
 endfunction
-autocmd GUIEnter,FileType c,cpp call CppFileSettings()
+autocmd FileType c,cpp,lua call CppFileSettings()
